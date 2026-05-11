@@ -1,0 +1,15 @@
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        lPtr = 0
+        rPtr = len(heights) - 1
+        maxAmount = 0
+        while lPtr < rPtr:
+            currentArea = min(heights[lPtr], heights[rPtr]) * (rPtr - lPtr)
+            maxAmount = max(maxAmount, currentArea)
+            if heights[lPtr] < heights[rPtr]:
+                lPtr += 1
+            else:
+                rPtr -= 1
+        return maxAmount        
+
+  
